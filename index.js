@@ -12,6 +12,14 @@ app.get('/api/persons', (req, res) => {
   res.json(phonebook)
 })
 
+app.get('/info', (req, res) => {
+  const dateTime = new Date(Date.now())
+  const dateString = dateTime.toString()
+  const payload = `<p>Phonebook has info for ${phonebook.length} people</p><p>${dateString}</p>`
+  console.log(payload)
+  res.send(payload)
+})
+
 const PORT = 3002
 app.listen(PORT)
 
